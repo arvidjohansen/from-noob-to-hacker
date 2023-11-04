@@ -4,13 +4,9 @@ this project is a humble attempt
 
 at providing high quality lectures and learning modules
 
-to assist those who wish to learn
+to assist those who wish 
 
-in attaining the skills they seek to quire
-
-by explaining it
-
-as short and concise as possible
+in their quest for knowledge
 
 
 ## Some subjects
@@ -24,3 +20,6 @@ as short and concise as possible
 * Hacking and security
 * and lots more!
 
+by explaining it
+
+as short and concise as possible
