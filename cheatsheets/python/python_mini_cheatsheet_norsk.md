@@ -41,12 +41,14 @@ else:
 
 ---
 
-## Løkker (for-løkker)
+## Løkker
 
-Løkker brukes til å gjenta noe
+Det finnes to typer løkker, `for`-løkker og `while`-løkker.
+
+Løkker brukes til å gjenta noe flere ganger, feks
 
 ### For å gjøre noe x antall ganger...
-kan vi bruke for-løkker med `range()`
+kan vi bruke for-løkker i kombinasjon med `range()`
 ```python
 for i in range(5): # skriver ut tallene fra 0 til 4
     print(i)
@@ -56,7 +58,7 @@ for i in range(1,6): # skriver ut tallene fra 1 til 5
 
 ---
 
-Når man looper over elementer i en liste har ikke variabelnavnet noe å si for operasjonen av programmet
+Når man looper over elementer i en liste har ikke selve **variabelnavnet** mellom `for` og `in` noe å si for programmet:
 ```py
 frukter = ["eple", "banan", "appelsin"]
 for frukt in frukter:
@@ -68,7 +70,7 @@ frukter = ["eple", "banan", "appelsin"]
 for f in frukter:
     print(f) # Skriver ut en frukt per linje
 ```
->Den eneste forskjellen er variabelnavnet for hvert enkelt element som i eksempel #1 er `frukt` og i eksempel #2 er `f`
+>Den eneste forskjellen er **variabelnavnet** for hvert enkelt element som i eksempel #1 er `frukt` og i eksempel #2 er `f`
 
 ---
 
@@ -128,44 +130,44 @@ print("Egget ditt er ferdig!")
 
 ## Funksjoner
 
-### Funksjon uten input parametre
+### ingen parametre
 
 ```python
 def si_hei():
-    print("Hei")
-si_hei()
+    print("Hei") 
+si_hei() # Skriver ut: Hei
 ```
 
 
 
-### Funksjon med en input parameter
+### **med** parameter kalt `navn`
 
 ```python
 def hilsen(navn):
-    print("Hei, " + navn + "!")
-hilsen("Kari")
+    print("Hei, " + navn + "!") 
+hilsen("Kari") # Skriver ut: Hei, Kari!
 ```
 
 ---
 
-### Funksjon uten input parametre med returverdi
+### ingen parametre men returnerer en tekststreng
 
 ```python
 def si_hei():
     return "Hei"
 
 svar = si_hei()
-print(svar)
+print(svar) # Skriver ut: Hei, Kari!
 ```
 
-### Funksjon med en input parameter og returverdi
+### **med** parameter `navn` og returnerer en tekststreng
 
 ```python
 def hilsen(navn):
     return "Hei, " + navn + "!"
 
 svar = hilsen("Kari")
-print(svar)
+print(svar) # Skriver ut: Hei, Kari!
 ```
 
 ---
@@ -208,7 +210,7 @@ print(frukter[2])  # Utskrift: appelsin
 ---
 
 
-### Ofte brukte metoder på liste-objektet
+## Ofte brukte metoder på liste-objektet
 
 * `append(obj)` legger til et nytt objekt i listen
 
@@ -238,8 +240,6 @@ frukter.insert(1, "mango")
 print(frukter) # Utskrift: ['eple', 'mango', 'banan', 'appelsin']
 ```
 
----
-
 * `remove(obj)` fjerner det første forekomsten av et objekt i listen
 
 ```python
@@ -259,7 +259,6 @@ print(siste_frukt) # Utskrift: appelsin
 print(frukter) # Utskrift: ['eple', 'banan']
 ```
 
----
 
 * `index(obj)` returnerer indeksen til det første forekomsten av et objekt i listen
 
@@ -279,8 +278,6 @@ antall_toere = tall.count(2)
 print(antall_toere) # Utskrift: 3
 ```
 
----
-
 * `sort()` sorterer elementene i listen i stigende rekkefølge
 
 ```python
@@ -288,7 +285,6 @@ tall = [5, 2, 8, 1, 3]
 tall.sort()
 print(tall) # Utskrift: [1, 2, 3, 5, 8]
 ```
-
 ---
 
 * `reverse()` reverserer rekkefølgen på elementene i listen
@@ -299,27 +295,78 @@ frukter.reverse()
 print(frukter) # Utskrift: ['appelsin', 'banan', 'eple']
 ```
 
----
-
-Dette gir en oversikt over noen av de mest brukte metodene på liste-objektet i Python. Du kan tilpasse eller legge til flere eksempler etter behov.
-
-
-
-* `append(obj)` legger til et nytt objekt i listen
-
-```python
-frukter = ["eple", "banan", "appelsin"]
-frukter.append("mango") # Legger mango til listen
-print(frukter) # Utskrift: ['eple', 'banan', 'appelsin', 'mango']
-```
 
 ---
 
-### Dictionary
-```python
-person = {"navn": "Per", "alder": 25}
-print(person["navn"])  # Utskrift: Per
-```
+## Dictionaries i Python
+
+
+* **Definisjon:** Dictionaries er en uordnet samling av nøkkel-verdi-par i Python.
+
+* **Bruksområde:** Egnet når du trenger å lagre data med tilknyttede nøkler for rask tilgang.
+
+* **Eksempel:**
+  ```python
+  person = {"navn": "Per", "alder": 25}
+  print(person)  # Utskrift: {'navn': 'Per', 'alder': 25}
+  ```
+
+---
+
+#### Ofte brukte metoder på dictionary-objektet
+
+* `keys()`: Returnerer en liste med alle nøklene i dictionarien.
+  ```python
+  nøkler = person.keys()
+  print(nøkler)  # Utskrift: ['navn', 'alder']
+  ```
+
+* `values()`: Returnerer en liste med alle verdiene i dictionarien.
+  ```python
+  verdier = person.values()
+  print(verdier)  # Utskrift: ['Per', 25]
+  ```
+---
+
+* `items()`: Returnerer en liste med nøkkel-verdi-par som tupler.
+  ```python
+  par = person.items()
+  print(par)  # Utskrift: [('navn', 'Per'), ('alder', 25)]
+  ```
+
+* `get(key)`: Returnerer verdien assosiert med den gitte nøkkelen, eller `None` hvis nøkkelen ikke finnes (kan også spesifisere en standardverdi).
+  ```python
+  alder = person.get("alder")
+  print(alder)  # Utskrift: 25
+  ```
+---
+
+* `pop(key)`: Fjerner og returnerer verdien assosiert med den gitte nøkkelen.
+  ```python
+  navn = person.pop("navn")
+  print(navn)  # Utskrift: 'Per'
+  ```
+
+* `update(dictionary)`: Oppdaterer dictionarien med nøkkel-verdi-par fra en annen dictionary.
+  ```python
+  ny_info = {"yrke": "ingeniør"}
+  person.update(ny_info)
+  print(person)  # Utskrift: {'alder': 25, 'yrke': 'ingeniør'}
+  ```
+
+---
+
+* `clear()`: Tømmer dictionarien for alle nøkler og verdier.
+  ```python
+  person.clear()
+  print(person)  # Utskrift: {}
+  ```
+
+* `in` (med nøkkel): Sjekker om en bestemt nøkkel finnes i dictionarien.
+  ```python
+  if "alder" in person:
+      print("Alder eksisterer i dictionarien.")
+  ```
 
 ---
 
@@ -363,7 +410,7 @@ pre{
 </style>
 
 ```python
-import random # Vi importerer hele biblioteket 
+import random # Vi importerer hele biblioteket i sitt eget namespace
 terningkast = random.randint(1,6) 
 print(terningkast)
 ```
@@ -375,7 +422,7 @@ print(terningkast)
 ```
 
 ```python
-from random import * # Vi importerer alt direkte til vårt namespace
+from random import * # Vi importerer fra biblioteket til vårt namespace
 terningkast = randint(1,6)
 print(terningkast)
 ```
