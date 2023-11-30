@@ -1,7 +1,7 @@
 ---
 marp: true
-theme: gaia
 class: invert
+
 ---
 
 
@@ -21,10 +21,20 @@ alder = 30
 
 ### Datatyper
 ```python
-tekst = "Dette er en tekst"
-heltall = 42
-desimaltall = 3.14
-sannhet = True
+tekst = "Dette er en tekst" # string
+heltall = 42                # int
+desimaltall = 3.14          # float
+sannhet = True              # bool
+```
+
+---
+
+
+### Konvertering i mellom datatyper
+```python
+s = "13"
+print(type(s)) # 
+i = int(13)
 ```
 
 ---
@@ -437,4 +447,81 @@ try:
 except ZeroDivisionError:
     print("Kan ikke dele på null.")
 ```
+
+### Bruk av `try` og `except`
+
+I Python kan du bruke `try` og `except` for å håndtere unntak (feil) i koden din. Dette er nyttig for å sikre at programmet ikke krasjer når det oppstår uventede situasjoner. Her er en enkel guide med eksempler.
+
+---
+
+## Grunnleggende syntaks
+
+```python
+try:
+    # Kode som kan føre til unntak
+    # ...
+except ExceptionType as e:
+    # Håndter unntaket her
+    # e er en referanse til unntaksobjektet
+    # ...
+```
+
+---
+
+## Eksempel 1: Enkel divisjon
+
+```python
+try:
+    resultat = 10 / 0
+except ZeroDivisionError as e:
+    print(f"Feil: {e}")
+    # Håndterer delt på null-feilen
+    resultat = "Udefinert"
+    
+print(f"Resultat: {resultat}")
+```
+
+---
+
+## Eksempel 2: Filbehandling
+
+```python
+filnavn = "ikkeeksisterende.txt"
+
+try:
+    with open(filnavn, 'r') as fil:
+        innhold = fil.read()
+except FileNotFoundError as e:
+    print(f"Feil: {e}")
+    # Håndterer filen som ikke finnes
+    innhold = None
+    
+print(f"Innhold: {innhold}")
+```
+
+---
+
+## Eksempel 3: Input-vasking
+
+```python
+def les_tall():
+    while True:
+        try:
+            tall = float(input("Skriv inn et tall: "))
+            break  # Hopper ut av løkken hvis input er gyldig
+        except ValueError:
+            print("Feil input. Skriv inn et gyldig tall.")
+
+    return tall
+
+bruker_tall = les_tall()
+print(f"Du skrev inn: {bruker_tall}")
+```
+
+---
+
+I eksempel 3 bruker vi en funksjon `les_tall` som brukeren kan kalle for å få et gyldig tall. Hvis brukeren skriver inn noe som ikke kan konverteres til et tall, vil det fange opp unntaket og be brukeren om å prøve igjen.
+
+Dette er bare grunnleggende eksempler, men `try` og `except` er kraftige verktøy for å håndtere feilsituasjoner og gjøre koden din mer robust.
+
 
