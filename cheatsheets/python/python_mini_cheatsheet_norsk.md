@@ -525,3 +525,125 @@ I eksempel 3 bruker vi en funksjon `les_tall` som brukeren kan kalle for å få 
 Dette er bare grunnleggende eksempler, men `try` og `except` er kraftige verktøy for å håndtere feilsituasjoner og gjøre koden din mer robust.
 
 
+
+---
+
+![right bg fit](https://www.jcchouinard.com/wp-content/uploads/2023/07/Python-Data-Types.png)
+
+# Oppgaver om types
+
+Lag et program som demonstrerer bruken av de mest basic datatypene i python:
+
+1. str
+1. int
+1. bool
+1. float
+
+Du skal lage et program som viser at du kan konvertere imellom de ulike datatypene, også vise at du kan handle errors når de oppstår.
+
+---
+
+### Spørsmål
+
+
+1. Hvilke ulike typer errors kan oppstå når man prøver å feks gjøre en str om til en int?
+1. Hva menes med Duck Typing?
+
+---
+
+# Python `type` Function Cheat Sheet
+
+
+The `type` function in Python is used to determine the type of an object.
+
+### Syntax
+
+```python
+type(object)
+```
+
+
+- `object`: The object whose type needs to be identified.
+
+
+
+### Example
+
+```python
+x = 42
+print(type(x))  # Output: <class 'int'>
+
+y = "Hello, World!"
+print(type(y))  # Output: <class 'str'>
+```
+
+---
+
+## Common Data Types
+
+### Numeric Types
+
+```python
+a = 3.14
+print(type(a))  # Output: <class 'float'>
+
+b = 5
+print(type(b))  # Output: <class 'int'>
+```
+
+---
+
+### Strings
+
+```python
+text = "Python is awesome"
+print(type(text))  # Output: <class 'str'>
+```
+
+### Lists
+
+```python
+my_list = [1, 2, 3]
+print(type(my_list))  # Output: <class 'list'>
+```
+
+---
+
+### Tuples
+
+```python
+my_tuple = (1, 2, 3)
+print(type(my_tuple))  # Output: <class 'tuple'>
+```
+
+
+
+### Dictionaries
+
+```python
+my_dict = {'a': 1, 'b': 2}
+print(type(my_dict))  # Output: <class 'dict'>
+```
+
+### Booleans
+
+```python
+flag = True
+print(type(flag))  # Output: <class 'bool'>
+```
+
+---
+
+## Custom Classes
+
+```python
+class MyClass:
+    pass
+
+obj = MyClass()
+print(type(obj))  # Output: <class '__main__.MyClass'>
+```
+
+Remember that `type` returns the type as a class, and the class name is enclosed in single quotes. This cheat sheet covers some common use cases, but you can apply the `type` function to any Python object to determine its type.
+
+---
