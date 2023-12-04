@@ -2,8 +2,8 @@
 marp: true
 class: invert
 
----
 
+---
 
 
 # Python Cheat Sheet
@@ -31,10 +31,14 @@ sannhet = True              # bool
 
 
 ### Konvertering i mellom datatyper
+
+Feks vi ønsker å gjøre en string om til en int:
+
 ```python
 s = "13"
-print(type(s)) # 
-i = int(13)
+print(type(s))      # <class 'str'>
+tall = int(s)       # Vi konverterer til en int
+print(type(tall))      # <class 'int'>
 ```
 
 ---
@@ -647,3 +651,157 @@ print(type(obj))  # Output: <class '__main__.MyClass'>
 Remember that `type` returns the type as a class, and the class name is enclosed in single quotes. This cheat sheet covers some common use cases, but you can apply the `type` function to any Python object to determine its type.
 
 ---
+
+# Python Dunder Methods Cheat Sheet
+
+## Object Initialization and Representation
+
+**dunder** er en forkortelse for **dobbel underscore**, og referer til funksjoner og attributter som er innebygd i python:
+
+- `__init__(self, ...)`: Initialize object.
+- `__repr__(self)`: Unambiguous string representation of the object.
+- `__str__(self)`: Readable string representation of the object (used by `str()` and `print()`).
+
+---
+
+## Attribute Access
+
+- `__getattr__(self, name)`: Called when an attribute is not found.
+- `__setattr__(self, name, value)`: Called when an attribute is set.
+- `__delattr__(self, name)`: Called when an attribute is deleted.
+- `__getattribute__(self, name)`: Called for all attribute access.
+
+
+---
+
+
+## Container Methods
+
+- `__len__(self)`: Returns the length of the object.
+- `__getitem__(self, key)`: Called to get the value associated with the key.
+- `__setitem__(self, key, value)`: Called to set the value associated with the key.
+- `__delitem__(self, key)`: Called to delete the key-value pair.
+
+---
+
+
+## Iteration and Sequence Methods
+
+- `__iter__(self)`: Returns an iterator object.
+- `__next__(self)`: Called to get the next item in iteration.
+- `__contains__(self, item)`: Checks if an item is present in the object.
+- `__reversed__(self)`: Returns a reversed iterator.
+
+---
+
+
+## Comparison
+
+- `__eq__(self, other)`: Equality comparison (`==`).
+- `__ne__(self, other)`: Inequality comparison (`!=`).
+- `__lt__(self, other)`: Less than comparison (`<`).
+- `__le__(self, other)`: Less than or equal to comparison (`<=`).
+- `__gt__(self, other)`: Greater than comparison (`>`).
+- `__ge__(self, other)`: Greater than or equal to comparison (`>=`).
+
+---
+
+
+## Arithmetic Operations
+
+- `__add__(self, other)`: Addition (`+`).
+- `__sub__(self, other)`: Subtraction (`-`).
+- `__mul__(self, other)`: Multiplication (`*`).
+- `__truediv__(self, other)`: True division (`/`).
+- `__floordiv__(self, other)`: Floor division (`//`).
+- `__mod__(self, other)`: Modulo (`%`).
+- `__pow__(self, other, mod=None)`: Exponentiation (`**`).
+
+---
+
+
+## Callable Objects
+
+- `__call__(self, ...)`: Allows an object to be called as a function.
+
+## Context Management
+
+- `__enter__(self)`: Called when entering a `with` statement.
+- `__exit__(self, exc_type, exc_value, traceback)`: Called when exiting a `with` statement.
+
+---
+
+
+## Other Special Methods
+
+- `__len__(self)`: Returns the length of the object.
+- `__hash__(self)`: Returns a hash value for the object.
+- `__bool__(self)`: Converts the object to a boolean value.
+
+---
+
+
+
+# Built-In Functions Cheat Sheet
+
+## Type Conversion
+
+- `int(x)`: Convert x to an integer.
+- `float(x)`: Convert x to a floating-point number.
+- `str(x)`: Convert x to a string.
+- `list(x)`: Convert x to a list.
+- `tuple(x)`: Convert x to a tuple.
+- `dict(x)`: Convert x to a dictionary.
+
+---
+
+## Mathematical Operations
+
+- `abs(x)`: Return the absolute value of x.
+- `max(iterable)`: Return the largest item in the iterable.
+- `min(iterable)`: Return the smallest item in the iterable.
+- `sum(iterable)`: Return the sum of the elements in the iterable.
+
+---
+
+## Sequence Manipulation
+
+- `len(x)`: Return the length of x (number of items).
+- `sorted(iterable)`: Return a new sorted list from the elements of the iterable.
+- `reversed(sequence)`: Return a reverse iterator of the sequence.
+
+---
+
+## Input/Output
+
+- `print(...)`: Print the specified values to the console.
+- `input(prompt)`: Read a line from the console and return it as a string.
+
+---
+
+## File Operations
+
+- `open(file, mode)`: Open a file and return a file object.
+- `read()`: Read the contents of the file.
+- `write(str)`: Write a string to the file.
+- `close()`: Close the file.
+
+---
+
+## Iteration
+
+- `range(stop)`: Generate a sequence of numbers from 0 to stop (exclusive).
+- `enumerate(iterable)`: Return an enumerate object containing pairs of index and element.
+- `zip(iterable1, iterable2, ...)`: Combine elements from multiple iterables into tuples.
+
+---
+
+## Miscellaneous
+
+- `type(x)`: Return the type of the object.
+- `id(x)`: Return the identity of an object.
+- `help(x)`: Display help documentation for x.
+- `dir(x)`: Return a **list** of names in the namespace of x.
+- `vars(x)` : Returns a **dictionary** with all the attributes for x.
+- `isinstance(x, type)`: Check if x is an instance of a specified type.
+
