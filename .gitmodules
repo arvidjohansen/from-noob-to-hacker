@@ -1,0 +1,3 @@
+[submodule "python/ultimate_cheat_sheet"]
+	path = python/ultimate_cheat_sheet
+	url = https://github.com/arvidjohansen/python-adv-web-apps
