@@ -1,3 +1,9 @@
 [submodule "python/ultimate_cheat_sheet"]
 	path = python/ultimate_cheat_sheet
 	url = https://github.com/arvidjohansen/python-adv-web-apps
+[submodule "python/flask-examples/example_sso"]
+	path = python/flask-examples/example_sso
+	url = https://github.com/workos/python-flask-sso-example
+[submodule "python/flask-examples/awesome-htmx"]
+	path = python/flask-examples/awesome-htmx
+	url = https://github.com/rajasegar/awesome-htmx
