@@ -19,11 +19,14 @@ def ping_and_return_status(target, results):
         if delay is None:
             results[target] = ('red', 'No response')
         else:
-            delay = delay * 1000
-            delay = '{:.3f}'.format(delay)
+            delay_ms = delay * 1000
+            delay_str = '{:.3f}'.format(delay_ms)
             # delay = round(delay, 3)  # Round delay to 3 decimal places
-            
-            results[target] = ('green', f'{delay} ms')
+
+            if delay_ms > 100:
+                results[target] = ('yellow', f'{delay_str} ms')
+            else:
+                results[target] = ('green', f'{delay_str} ms')
     except Exception as e:
         results[target] = ('red', str(e))
 
