@@ -6,10 +6,7 @@ from rich.console import Console
 from rich.table import Table
 
 # List of targets
-targets = ['nrk.no', 'vg.no', 
-           '192.168.0.1',
-           '192.168.0.100',
-           '192.168.0.112']
+targets = ['nrk.no', 'vg.no']
 targets.extend([f'login.p{i}.worldoftanks.eu' for i in range(1,4)])
 
 # Initialize console
@@ -18,18 +15,18 @@ console = Console()
 # Function to ping and return status
 def ping_and_return_status(target, results):
     try:
-        delay = ping(target,timeout=2)
+        delay = ping(target)
         if delay is None:
             results[target] = ('red', 'No response')
         else:
             delay_ms = delay * 1000
-            delay_str = '{:.2f}'.format(delay_ms)
+            delay_str = '{:.3f}'.format(delay_ms)
             # delay = round(delay, 3)  # Round delay to 3 decimal places
 
             if delay_ms > 100:
-                results[target] = ('yellow', f'{delay_str}ms')
+                results[target] = ('yellow', f'{delay_str} ms')
             else:
-                results[target] = ('green', f'{delay_str}ms')
+                results[target] = ('green', f'{delay_str} ms')
     except Exception as e:
         results[target] = ('red', str(e))
 
@@ -61,10 +58,10 @@ def display_table():
         up_str = "Up"
         response_str = "Response"
 
-    table = Table(show_header=False, header_style="bold magenta")
-    table.add_column(target_str, style="dim", width=29)
+    table = Table(show_header=True, header_style="bold magenta")
+    table.add_column(target_str, style="dim", width=24)
     table.add_column(up_str, justify="center", width=2)
-    table.add_column(response_str, justify="right", width=11)
+    table.add_column(response_str, justify="right")
 
     # Add a row to the table for each target
     for target in targets:
