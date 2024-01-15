@@ -1,8 +1,21 @@
+---
+marp: true
+---
+
 # Python Regular Expressions (Regex) Cheat Sheet
 
 ## Introduction
 
 Regular expressions (regex) are a powerful tool for pattern matching and manipulation in strings. In Python, the `re` module provides support for regular expressions.
+
+---
+
+<style scope>
+*{
+
+    font-size:80%;
+}
+</style>
 
 ## Basic Symbols
 
@@ -22,6 +35,10 @@ Regular expressions (regex) are a powerful tool for pattern matching and manipul
 - `()`: Defines a group
 - `\`: Used to escape special characters
 
+
+---
+
+
 ## Special Sequences
 
 - `\d`: Matches any decimal digit; equivalent to `[0-9]`
@@ -33,12 +50,20 @@ Regular expressions (regex) are a powerful tool for pattern matching and manipul
 - `\b`: Matches the empty string, but only at the beginning or end of a word
 - `\B`: Matches the empty string, but not at the beginning or end of a word
 
+
+---
+
+
 ## `re` Module Functions
 
 - `re.match(pattern, string)`: Determines if the regex matches at the beginning of the string
 - `re.search(pattern, string)`: Searches the string for a match to the regex
 - `re.findall(pattern, string)`: Returns all non-overlapping matches of the regex as a list of strings
 - `re.sub(pattern, repl, string)`: Replaces all matches of the regex in the string with repl
+
+
+---
+
 
 ## Using the Built-In `help()` Function
 
@@ -48,6 +73,10 @@ Python's built-in `help()` function is a great way to get help on Python objects
 import re
 help(re)
 ```
+
+
+---
+
 
 This will print out a lot of information about the `re` module, including a brief description of the module, a list of functions and classes provided by the module, and a detailed description of each function and class.
 
@@ -76,6 +105,10 @@ print(is_valid_email("test@example.com"))  # Outputs: True
 print(is_valid_email("invalid_email"))  # Outputs: False
 ```
 
+
+---
+
+
 **Example 2: Extracting All URLs from a Text**
 
 ```python
@@ -89,6 +122,10 @@ text = "For more info, visit https://www.example.com or http://example.net"
 print(extract_urls(text))  # Outputs: ['https://www.example.com', 'http://example.net']
 ```
 
+
+---
+
+
 **Example 3: Replacing Phone Numbers with a Placeholder**
 
 ```python
@@ -101,5 +138,6 @@ def redact_phone_numbers(text):
 text = "Call me at 555-123-4567 or 555.123.4568"
 print(redact_phone_numbers(text))  # Outputs: "Call me at [redacted] or [redacted]"
 ```
+
 
 Remember, these are just basic examples and might not cover all possible cases. Always tailor your regex to your specific needs.

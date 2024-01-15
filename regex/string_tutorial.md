@@ -1,3 +1,7 @@
+---
+marp: true
+---
+
 # Python String Manipulation: A Beginner's Guide
 
 Before diving into regular expressions, it's important to have a good understanding of basic string manipulation in Python. Here's a brief overview:
@@ -10,6 +14,10 @@ In Python, a string is a sequence of characters. You can create a string by encl
 s = "Hello, world!"
 ```
 
+
+---
+
+
 ## Lesson 2: Accessing Characters
 
 You can access individual characters in a string using indexing. Python uses zero-based indexing, so the first character is at index 0, the second character is at index 1, and so on.
@@ -18,6 +26,9 @@ You can access individual characters in a string using indexing. Python uses zer
 s = "Hello, world!"
 print(s[0])  # Outputs: H
 ```
+
+
+---
 
 ## Lesson 3: Slicing Strings
 
@@ -28,6 +39,8 @@ s = "Hello, world!"
 print(s[0:5])  # Outputs: Hello
 ```
 
+---
+
 ## Lesson 4: String Length
 
 You can get the length of a string (the number of characters) using the `len()` function.
@@ -36,6 +49,8 @@ You can get the length of a string (the number of characters) using the `len()` 
 s = "Hello, world!"
 print(len(s))  # Outputs: 13
 ```
+
+---
 
 ## Lesson 5: String Methods
 

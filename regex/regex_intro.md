@@ -1,3 +1,7 @@
+---
+marp: true
+---
+
 # Regular Expressions in Python: A Beginner's Guide
 
 ## Introduction
@@ -11,6 +15,9 @@ Before we can use regular expressions in Python, we need to import the `re` modu
 ```python
 import re
 ```
+
+---
+
 
 ## Lesson 2: Basic Regex Symbols
 
@@ -27,11 +34,18 @@ Here are some basic regex symbols:
 - `[abc]`: Matches either a, b or c
 - `\`: Used to escape special characters
 
+---
+
+
 ## Lesson 3: Using `re.match()`
 
 The `re.match()` function checks if a string starts with a specified pattern. If the pattern matches, `re.match()` returns a match object. If not, it returns `None`.
 
 Here's an example:
+
+
+---
+
 
 ```python
 import re
@@ -49,11 +63,19 @@ else:
 
 In this example, the pattern `^Hello` matches any string that starts with "Hello". Since our string "Hello, world!" does start with "Hello", `re.match()` returns a match object and "Match found!" is printed.
 
+
+---
+
+
 ## Lesson 4: Using `re.search()`
 
 The `re.search()` function searches the entire string for a specified pattern. If the pattern matches, `re.search()` returns a match object. If not, it returns `None`.
 
 Here's an example:
+
+
+---
+
 
 ```python
 import re
@@ -70,6 +92,9 @@ else:
 ```
 
 In this example, the pattern `world` matches any string that contains "world". Since our string "Hello, world!" does contain "world", `re.search()` returns a match object and "Match found!" is printed.
+
+---
+
 
 ## Lesson 5: Using `re.findall()`
 
@@ -98,6 +123,10 @@ You can extract specific parts of a string using regular expressions in Python b
 
 Here's an example:
 
+
+---
+
+
 ```python
 import re
 
@@ -113,6 +142,10 @@ if match:
 ```
 
 In this example, the pattern `(\w+) Doe, born (\d+)` contains two groups: `(\w+)` and `(\d+)`. The first group matches one or more word characters (equivalent to `[a-zA-Z0-9_]`), and the second group matches one or more digits (equivalent to `[0-9]`).
+
+
+---
+
 
 The `re.search()` function returns a match object if the pattern matches the string. You can then use the `group()` method on the match object to access the groups. `group(0)` returns the entire match, `group(1)` returns the first group, `group(2)` returns the second group, and so on.
 
@@ -135,7 +168,10 @@ if match:
     print("Day: ", match.group(3))  # Outputs: 30
 ```
 
+
 In this example, the pattern `(\d{4})-(\d{2})-(\d{2})` contains three groups that match the year, month, and day in a date string in the format YYYY-MM-DD.
+
+---
 
 **Example 2: Extracting URL Components**
 
