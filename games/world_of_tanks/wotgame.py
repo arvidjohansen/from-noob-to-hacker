@@ -1,0 +1,83 @@
+import pygame
+import sys
+
+# Initialize Pygame
+pygame.init()
+
+# Set up some constants
+WIDTH, HEIGHT = 800, 600
+SPEED = 1
+
+# Create the screen
+screen = pygame.display.set_mode((WIDTH, HEIGHT))
+
+# Load the tank image
+tank = pygame.image.load('tank.png')
+
+# Set the tank's starting position
+tank_pos = [WIDTH // 2, HEIGHT // 2]
+
+class Bullet:
+    def __init__(self, pos):
+        self.pos = list(pos)
+        self.speed = 1
+        self.state = 'flying'
+        self.image = pygame.image.load('bullet.png')
+        self.explosion_image = pygame.image.load('explosion.png')
+        print('created bullet')
+
+    def move(self):
+        self.pos[1] -= self.speed
+        print(f'moved bullet to: {self.pos}')
+
+    def check_collision(self, target):
+        # Add your collision detection logic here
+        pass
+
+    def explode(self):
+        print(f'bullet exploded at {self.pos}')
+        self.state = 'exploded'
+
+bullets = []
+
+# Main game loop
+while True:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            sys.exit()
+
+    # Get the current key presses
+    keys = pygame.key.get_pressed()
+
+    # Move the tank
+    if keys[pygame.K_LEFT]:
+        tank_pos[0] -= SPEED
+    if keys[pygame.K_RIGHT]:
+        tank_pos[0] += SPEED
+    if keys[pygame.K_UP]:
+        tank_pos[1] -= SPEED
+    if keys[pygame.K_DOWN]:
+        tank_pos[1] += SPEED
+    
+    if keys[pygame.K_SPACE]:
+        bullets.append(Bullet(tank_pos))
+
+    
+
+
+    # Draw everything
+    screen.fill((0, 0, 0))
+    screen.blit(tank, tank_pos)
+
+    # Update and draw bullets
+    for bullet in bullets:
+        if bullet.state == 'flying':
+            bullet.move()
+            bullet.check_collision(tank_pos)
+            screen.blit(bullet.image, bullet.pos)
+        elif bullet.state == 'exploded':
+            screen.blit(bullet.explosion_image, bullet.pos)
+
+    # Update the display
+    pygame.display.flip()
