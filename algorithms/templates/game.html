@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Live Color Update</h5>
+        <div class="card-text">
+            {% for _ in range(10) %}
+                <div class="row">
+                    {% for _ in range(10) %}
+                        <div hx-get="/color" hx-trigger="every 1s" hx-swap="outerHTML" class="m-1" style="width: 20px; height: 20px;"></div>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
