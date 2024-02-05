@@ -14,6 +14,7 @@ SQUARE_WIDTH = 100
 WIDTH, HEIGHT = SQUARE_WIDTH * 10, SQUARE_HEIGHT * 10  # Screen dimensions
 FPS = 10  # Frames per second
 SPEED = 100  # Speed of the object
+GAME_TITLE = "Duck Hunt Tank Game"
 
 color = (255,255,255) # initial color of object
 
