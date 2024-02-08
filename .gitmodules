@@ -7,3 +7,6 @@
 [submodule "python/flask-examples/awesome-htmx"]
 	path = python/flask-examples/awesome-htmx
 	url = https://github.com/rajasegar/awesome-htmx
+[submodule "games/ursina_engine/Minecraft-in-Python"]
+	path = games/ursina_engine/Minecraft-in-Python
+	url = https://github.com/clear-code-projects/Minecraft-in-Python
