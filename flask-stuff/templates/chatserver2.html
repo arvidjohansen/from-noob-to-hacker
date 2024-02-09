@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}Chat Server{% endblock %}
+
+{% block content %}
+<div class="jumbotron">
+    <h1 class="mt-1">Chat Juice</h1>
+   
+    
+</div>
+<div class="card">
+    <div class="card-body">
+        <!--
+
+            <div id="chatroom">
+                <div id="messages" hx-connect="/connect" 
+                hx-ext="sse"  hx-trigger="sse-data"></div>
+            </div>
+        -->
+        <form hx-post="/send-message" hx-swap="none">
+            <input type="hidden" name="username" value="anonymous">
+            <input type="text" name="message" placeholder="Enter your message">
+            <button type="submit">Send</button>
+        </form>
+        <div id="message">
+
+            </div>
+            <!--
+            -->
+
+                <div hx-ext="sse" sse-connect="/connect" sse-swap="data">
+                    Contents of this box will be updated in real time
+                    with every SSE message received from the chatroom.
+                </div>
+            <!--
+
+                <script>
+                    document.body.addEventListener('htmx:sseMessage', function (event) {
+                        console.log("got sseMessage " + event.detail.sseEvent.data);
+                        document.getElementById('messages').innerHTML += event.detail.sseEvent.data + '<br>';
+                    });
+                </script>
+            -->
+    </div>
+</div>
+{% endblock %}

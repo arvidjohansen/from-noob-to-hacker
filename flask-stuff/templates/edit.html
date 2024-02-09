@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}
+Edit Downloader
+{% endblock %}
+
+{% block content %}
+<h1>Edit Downloader</h1>
+<form method="post">
+    <div class="form-group">
+        <label for="url">URL</label>
+        <input type="text" class="form-control" id="url" name="url" value="{{ downloader.url }}" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock %}
