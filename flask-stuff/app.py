@@ -1,22 +1,47 @@
 # app.py
 
 import sys
+from enum import Enum
 from flask import Flask, render_template, redirect, request
-from flask import flash, get_flashed_messages
+from flask import flash
 from flask import url_for
 from flask_sqlalchemy import SQLAlchemy
 from flask_wtf import FlaskForm
+from pytube import YouTube
 from sqlalchemy.sql import func
+from utilities import time_since, default_if_none
 from wtforms import TextAreaField
 from wtforms.validators import DataRequired
-from utilities import time_since, default_if_none
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///downloads.db'
 app.config['SECRET_KEY'] = 'your_secret_key'
+app.config["DOWNLOAD_FOLDER"] = "downloads"
 db = SQLAlchemy(app)
 app.jinja_env.filters['time_since'] = time_since
 app.jinja_env.filters['default_if_none'] = default_if_none
+
+class Status(Enum):
+    PRE_DOWNLOAD = "pre_download"
+    DOWNLOADING = "downloading"
+    FINISHED = "finished"
+    error = "error"
+    ERROR = "error"
+    
+
+    @property
+    def full_name(self):
+        if self == Status.PRE_DOWNLOAD:
+            return "Not started"
+        elif self == Status.DOWNLOADING:
+            return "Downloading"
+        elif self == Status.FINISHED:
+            return "Finished"
+        elif self == Status.ERROR:
+            return "Error"
+        elif self == Status.error:
+            return "Error"
+    
 
 
 class Downloader(db.Model):
@@ -24,6 +49,25 @@ class Downloader(db.Model):
     url = db.Column(db.String(255), nullable=False)
     created_at = db.Column(db.DateTime, default=func.now())
     edited_at = db.Column(db.DateTime, onupdate=func.now())
+    status = db.Column(db.Enum(Status), default=Status.PRE_DOWNLOAD)
+
+    def download(self):
+        from pdb import set_trace;set_trace()
+        try:
+            youtube = YouTube(self.url)
+            video = youtube.streams.get_highest_resolution()
+            video.download(app.config['DOWNLOAD_FOLDER'])
+            self.status = 'FINISHED'
+            db.session.commit()
+        except Exception as e:
+            print(f"An error occurred: {e}")
+            self.status = 'ERROR'
+            db.session.commit()
+
+    @property
+    def get_status_name(self):
+        return self.status.full_name
+
 class DownloadForm(FlaskForm):
     urls = TextAreaField('URLs', validators=[DataRequired()])
 
@@ -79,6 +123,11 @@ def delete(id):
     flash('Downloader successfully deleted.')
     return redirect(url_for('downloads'))
 
+@app.route('/download/<int:id>', methods=['POST'])
+def download(id):
+    downloader = Downloader.query.get_or_404(id)
+    downloader.download()
+    return redirect(url_for('home'))
 
 if __name__ == '__main__':
     with app.app_context():
@@ -92,6 +141,7 @@ if __name__ == '__main__':
         db.create_all()
         app.run(debug=True)
         """
+        https://flask-migrate.readthedocs.io/en/latest/
         In case of future changes to DB schema, you can use the following code 
         to add new columns to the existing table.
         Instead of using Migrate App.

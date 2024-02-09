@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}Chat Server{% endblock %}
+
+{% block content %}
+<div class="jumbotron">
+    <h1 class="mt-1">Chat Juice</h1>
+   
+    
+</div>
+<div class="card">
+    <div class="card-body">
+        <div id="chatroom">
+            <div id="messages"></div>
+            <input type="text" id="nickname" placeholder="Enter your nickname">
+            <input type="text" id="message" placeholder="Enter your message">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+        <div id="users"></div>
+    
+        <script>
+            var socket = io();
+    
+            socket.on('connect', function() {
+                socket.on('user connected', function(data) {
+                    document.getElementById('users').innerHTML += data.username + ' has connected<br>';
+                });
+    
+                socket.on('load messages', function(data) {
+                    data.forEach(function(msg) {
+                        document.getElementById('messages').innerHTML += msg.username + ': ' + msg.message + '<br>';
+                    });
+                });
+    
+                socket.on('receive message', function(data) {
+                    document.getElementById('messages').innerHTML += data.username + ': ' + data.message + '<br>';
+                });
+            });
+    
+            function sendMessage() {
+                var message = document.getElementById('message').value;
+                var nickname = document.getElementById('nickname').value;
+                socket.emit('send message', {message: message});
+                socket.emit('update nickname', {nickname: nickname});
+            }
+        </script>
+    </div>
+</div>
+{% endblock %}

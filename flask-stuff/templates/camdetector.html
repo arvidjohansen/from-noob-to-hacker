@@ -1,0 +1,95 @@
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facial Feature Detection</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        #video {
+            border: 2px solid #333;
+        }
+
+        canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <video id="video" width="640" height="480" autoplay></video>
+    <canvas id="canvas" width="640" height="480"></canvas>
+
+    <script>
+        async function run() {
+            const video = document.getElementById('video');
+            const canvas = document.getElementById('canvas');
+            const context = canvas.getContext('2d');
+            
+            // Request access to the camera
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ video: {} });
+                video.srcObject = stream;
+            } catch (error) {
+                console.error('Error accessing the camera:', error);
+            }
+
+            // Draw facial features
+            async function drawFace() {
+                context.clearRect(0, 0, canvas.width, canvas.height);
+
+                // Use FaceDetector API to detect faces
+                const faceDetector = new FaceDetector();
+                const faces = await faceDetector.detect(video);
+
+                if (faces.length > 0) {
+                    faces.forEach(face => {
+                        // Highlight the face with a rectangle
+                        context.beginPath();
+                        context.strokeStyle = 'red';
+                        context.rect(
+                            face.boundingBox.x,
+                            face.boundingBox.y,
+                            face.boundingBox.width,
+                            face.boundingBox.height
+                        );
+                        context.stroke();
+
+                        // Highlight the eyes
+                        context.beginPath();
+                        context.fillStyle = 'blue';
+                        face.landmarks.forEach(landmark => {
+                            if (landmark.type === 'eye') {
+                                context.arc(landmark.location.x, landmark.location.y, 3, 0, 2 * Math.PI);
+                            }
+                        });
+                        context.fill();
+
+                        // Highlight the mouth
+                        context.beginPath();
+                        context.fillStyle = 'green';
+                        face.landmarks.forEach(landmark => {
+                            if (landmark.type === 'mouth') {
+                                context.arc(landmark.location.x, landmark.location.y, 3, 0, 2 * Math.PI);
+                            }
+                        });
+                        context.fill();
+                    });
+                }
+
+                requestAnimationFrame(drawFace);
+            }
+
+            drawFace();
+        }
+
+        run();
+    </script>

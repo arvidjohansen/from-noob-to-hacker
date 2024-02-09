@@ -27,6 +27,7 @@
                     <th>Status</th>
                     <th>Created</th>
                     <th>Updated</th>
+                    <th>Download</th>
                     <th>Edit</th>
                     <th>Delete</th>
                 </tr>
@@ -36,9 +37,15 @@
                 <tr>
                     <td>{{ download.id }}</td>
                     <td>{{ download.url }}</td>
-                    <td>{{ download.status }}</td>
+                    <td>{{ download.get_status_name }}</td>
                     <td>{{ download.created_at|time_since }}</td>
                     <td>{{ download.edited_at|default_if_none("")|time_since }}</td>
+                    <td>
+                        <form action="{{ url_for('download', id=download.id) }}" method="post">
+                            {{ form.hidden_tag() }}
+                            <button type="submit" class="btn btn-success btn-sm">Download</button>
+                        </form>
+                    </td>
                     <td><a href="{{ url_for('edit', id=download.id) }}" class="btn btn-warning btn-sm">Edit</a></td>
                     <td><a href="{{ url_for('delete', id=download.id) }}" class="btn btn-danger btn-sm">Delete</a></td>
                 </tr>
