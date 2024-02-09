@@ -3,6 +3,8 @@ marp: true
 class: invert
 ---
 
+![bg right fit](https://png2.cleanpng.com/sh/891b3cc98dc584da6aa03ba827ba3271/L0KzQYm3VcEyN5p9iZH0aYP2gLBuTfxqdqZ9Rd9qY3B2PcbzlQJibZVujJ8AYXa4SYi3VsBkO2c7S5C5MUG6QoOBV8E2Omc1TKY9MkKzRXB3jvc=/kisspng-linux-macos-ultraedit-5af597060c3663.01172287152604442205.png)
+
 # Basic usage of the terminal on macOS (and Linux) 
 
 The following is a cheatsheet for how to use the most basic commands on a macOS-system. These commands are mostly the same on Linux/UNIX/macOS. 
@@ -95,6 +97,8 @@ This is a basic overview, and there are many more commands and options available
 
 ---
 
+# Windows
+![bg right fit 80%](https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Unofficial_Windows_logo_variant_-_2002%E2%80%932012_%28Multicolored%29.svg/2321px-Unofficial_Windows_logo_variant_-_2002%E2%80%932012_%28Multicolored%29.svg.png)
 ## Difference between macOS/Linux/Windows
 
 While many commands are similar across different operating systems, there are variations between macOS (which is Unix-based), Linux, and Windows. Here's how some of the commands from the initial list might differ:
@@ -221,5 +225,3 @@ While many commands are similar across different operating systems, there are va
 - **Kill Process:**
   - macOS/Linux: `kill <process_id>`
   - Windows: `taskkill /PID <process_id>`
-
----
