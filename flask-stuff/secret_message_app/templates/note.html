@@ -1,0 +1,13 @@
+<!-- templates/note.html -->
+{% extends 'base.html' %}
+
+{% block title %}View Note{% endblock %}
+
+{% block content %}
+    <h1 class="mb-4">View Note</h1>
+    <div class="card">
+        <div class="card-body">
+            <p class="card-text">{{ note.message }}</p>
+        </div>
+    </div>
+{% endblock %}
