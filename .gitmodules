@@ -10,3 +10,9 @@
 [submodule "games/ursina_engine/Minecraft-in-Python"]
 	path = games/ursina_engine/Minecraft-in-Python
 	url = https://github.com/clear-code-projects/Minecraft-in-Python
+[submodule "google/slides-creator/gslides"]
+	path = google/slides-creator/gslides
+	url = https://github.com/michael-gracie/gslides
+[submodule "ffmpeg-cheat-sheet"]
+	path = ffmpeg-cheat-sheet
+	url = https://github.com/arvidjohansen/ffmpeg-cheat-sheet
