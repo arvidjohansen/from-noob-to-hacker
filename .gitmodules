@@ -16,3 +16,6 @@
 [submodule "ffmpeg-cheat-sheet"]
 	path = ffmpeg-cheat-sheet
 	url = https://github.com/arvidjohansen/ffmpeg-cheat-sheet
+[submodule "flask-template-students"]
+	path = flask-template-students
+	url = https://github.com/arvidjohansen/flask-template-students
