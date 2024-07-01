@@ -19,3 +19,6 @@
 [submodule "flask-template-students"]
 	path = flask-template-students
 	url = https://github.com/arvidjohansen/flask-template-students
+[submodule "games/ursina_engine/Zippy_Codes"]
+	path = games/ursina_engine/Zippy_Codes
+	url = https://github.com/ZippyCodeYT/Zippy_Codes
