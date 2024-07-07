@@ -127,6 +127,8 @@ def handle_input():
 def update_color():
     global color
     color = (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
+def is_intersecting(obj1, obj2):
+    return obj1[0] < obj2[0] + SQUARE_WIDTH and obj1[0] + SQUARE_WIDTH > obj2[0] and obj1[1] < obj2[1] + SQUARE_HEIGHT and obj1[1] + SQUARE_HEIGHT > obj2[1]
 def collision_detection():
     # check if apple is eaten
     global apple_pos

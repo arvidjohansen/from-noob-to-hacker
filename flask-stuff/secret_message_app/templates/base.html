@@ -6,9 +6,81 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Secret Notes App{% endblock %}</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
 </head>
 <body>
     <div class="container mt-5">
+        <h1 class="mb-4">{% block subtitle %} {% endblock %}</h1>
+
+        <div class="progress h-auto mb-3">
+            <div class="progress-bar" role="progressbar" 
+            style="width: 33%" aria-valuenow="33" 
+            aria-valuemin="0" aria-valuemax="100">
+            <h6 class="display-inline  mt-2 mb-2">
+                <!--
+
+                    <span class="badge badge-black-50">
+                    </span>
+                -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-fill" viewBox="0 0 16 16">
+                    <path d="M8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6-.097 1.016-.417 2.13-.771 2.966-.079.186.074.394.273.362 2.256-.37 3.597-.938 4.18-1.234A9 9 0 0 0 8 15"/>
+                  </svg> Message
+            </h6>
+        </div>
+        <div class="progress-bar bg-secondary" role="progressbar" 
+            style="width: 33%" aria-valuenow="33" 
+            aria-valuemin="0" aria-valuemax="100">
+            <h6 class="display-inline  mt-2 mb-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-lock" viewBox="0 0 16 16">
+                    <path d="M8 5a1 1 0 0 1 1 1v1H7V6a1 1 0 0 1 1-1m2 2.076V6a2 2 0 1 0-4 0v1.076c-.54.166-1 .597-1 1.224v2.4c0 .816.781 1.3 1.5 1.3h3c.719 0 1.5-.484 1.5-1.3V8.3c0-.627-.46-1.058-1-1.224M6.105 8.125A.64.64 0 0 1 6.5 8h3a.64.64 0 0 1 .395.125c.085.068.105.133.105.175v2.4c0 .042-.02.107-.105.175A.64.64 0 0 1 9.5 11h-3a.64.64 0 0 1-.395-.125C6.02 10.807 6 10.742 6 10.7V8.3c0-.042.02-.107.105-.175"/>
+                    <path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1"/>
+                  </svg> Encrypt
+            </h6>
+        </div>
+        <div class="progress-bar bg-secondary" role="progressbar" 
+            style="width: 33%" aria-valuenow="33" 
+            aria-valuemin="0" aria-valuemax="100">
+            <h6 class="display-inline  mt-2 mb-2">
+                <i class="bi bi-envelope"></i> Share
+            </h6>
+        </div>
+        <!--
+                <div class="progress-bar bg-success" role="progressbar" 
+                style="width: 33%" aria-valuenow="33" aria-valuemin="0" 
+                aria-valuemax="100"></div>
+
+                <div class="progress-bar bg-info" role="progressbar" 
+                style="width: 33%" aria-valuenow="33" aria-valuemin="0" 
+                aria-valuemax="100"></div>
+            -->
+          </div>
+        {#
+        <h1 class="mb-4">{% block subtitle %} {% endblock %}</h1>
+        <!-- Progress bar -->
+        <div class="progress mb-4 w-auto h-auto">
+            <div class="progress-bar" 
+            role="progressbar" 
+            style="width: 
+            {% block progress_number %}{% endblock %}" 
+            aria-valuenow="{% block progress %}0{% endblock %}" 
+            aria-valuemin="0" 
+            aria-valuemax="100">
+            <h4 class="mb-2 mt-2" >Create</h3>
+            </div>
+        </div>
+        #}
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="alert alert-info">
+                    {% for message in messages %}
+                        <p>{{ message }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+
         {% block content %}
         {% endblock %}
     </div>

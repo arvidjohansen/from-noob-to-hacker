@@ -22,3 +22,9 @@
 [submodule "games/ursina_engine/Zippy_Codes"]
 	path = games/ursina_engine/Zippy_Codes
 	url = https://github.com/ZippyCodeYT/Zippy_Codes
+[submodule "linux/wsl-debian"]
+	path = linux/wsl-debian
+	url = https://github.com/rodcomucci/wsl-debian
+[submodule "linux/wsl-debian-settings"]
+	path = linux/wsl-debian-settings
+	url = https://github.com/and1er/wsl-debian-settings

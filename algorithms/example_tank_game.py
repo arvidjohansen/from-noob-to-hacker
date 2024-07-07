@@ -18,6 +18,8 @@ pygame.display.set_caption("Duck Hunt Tank Game")
 white = (255, 255, 255)
 black = (0, 0, 0)
 
+bullets = pygame.sprite.Group()
+
 # Set up the clock
 clock = pygame.time.Clock()
 
@@ -51,6 +53,7 @@ def draw_fps(pos_x=0, pos_y=0, size=36) -> None:
     font = pygame.font.Font(None, size)
     text = font.render(f'FPS: {round(clock.get_fps(),2)}', True, (255, 255, 0))
     screen.blit(text, (pos_x, pos_y))
+
 
 
 # Set up tank

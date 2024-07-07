@@ -1,6 +1,4 @@
-import math
 import pygame
-import random
 import sys
 
 # Initialize Pygame
@@ -30,7 +28,7 @@ def draw_background():
     screen.fill(BLACK)  # Fill the screen with black
 
 def draw_player():
-    pygame.draw.rect(screen, WHITE, pygame.Rect(player_pos[0], player_pos[1], SQUARE_HEIGHT,SQUARE_WIDTH))  # Draw the object
+    pygame.draw.rect(screen, WHITE, pygame.Rect(player_pos[0], player_pos[1], SQUARE_HEIGHT,SQUARE_WIDTH,))  # Draw the object
     font = pygame.font.Font(None, 36)
     
 
@@ -43,6 +41,7 @@ def handle_movement(keys):
         player_pos[1] -= SPEED
     if keys[pygame.K_DOWN] and player_pos[1] < HEIGHT - SQUARE_HEIGHT:
         player_pos[1] += SPEED
+
 def handle_input():
     for event in pygame.event.get():
         if event.type == pygame.QUIT:

@@ -21,7 +21,11 @@ def receive_messages(client_socket):
             data = client_socket.recv(BUFFER_SIZE)
             if data:
                 # Process received data (e.g., update game grid)
+                # Redraw the game grid
+
+                # Draw the game grid
                 pass
+
         except Exception as e:
             print(f"Exception: {e}")
             break

@@ -33,7 +33,7 @@ def index():
                 new_note.set_password(password)
             db.session.add(new_note)
             db.session.commit()
-            flash('Note created successfully!')
+            flash('Note created successfully!',category='success')
             return redirect(url_for('view_note', note_id=new_note.id))
         else:
             flash('Message cannot be empty!')

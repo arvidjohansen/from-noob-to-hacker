@@ -10,7 +10,7 @@ class Player(Entity):   # inherits Entity, out base class for most things. Like 
         self.x = 0
         self.y = 1
         self.z = 0
-        self.world_position = (0,1,0)
+        self.world_position = (0,1,0)     
         self.world_x = 0
 
         self.rotation = (0,0,0)   # euler angles

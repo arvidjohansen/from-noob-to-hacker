@@ -2,18 +2,13 @@
 {% extends 'base.html' %}
 
 {% block title %}Create Secret Note{% endblock %}
+{% block subtitle %}Create Secret Note {% endblock %}
+
+{% block progress_number %}33%{% endblock %}
+{% block progress %}33{% endblock %}
 
 {% block content %}
-    <h1 class="mb-4">Create Secret Note</h1>
-    {% with messages = get_flashed_messages() %}
-        {% if messages %}
-            <div class="alert alert-info">
-                {% for message in messages %}
-                    <p>{{ message }}</p>
-                {% endfor %}
-            </div>
-        {% endif %}
-    {% endwith %}
+    
     <form method="POST">
         <div class="form-group">
             <label for="message">Message</label>
