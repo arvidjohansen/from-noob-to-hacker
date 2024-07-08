@@ -28,3 +28,15 @@
 [submodule "linux/wsl-debian-settings"]
 	path = linux/wsl-debian-settings
 	url = https://github.com/and1er/wsl-debian-settings
+[submodule "windows-stuff/WinTools"]
+	path = windows-stuff/WinTools
+	url = https://github.com/0xeb/WinTools
+[submodule "python/best-of-python"]
+	path = python/best-of-python
+	url = https://github.com/ml-tooling/best-of-python
+[submodule "javascript/javascript-for-cats"]
+	path = javascript/javascript-for-cats
+	url = https://github.com/max-mapper/javascript-for-cats
+[submodule "flask-stuff/Flask-Server-template"]
+	path = flask-stuff/Flask-Server-template
+	url = https://github.com/sonhm3029/Flask-Server-template
