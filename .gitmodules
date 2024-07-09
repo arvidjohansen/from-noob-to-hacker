@@ -40,3 +40,18 @@
 [submodule "flask-stuff/Flask-Server-template"]
 	path = flask-stuff/Flask-Server-template
 	url = https://github.com/sonhm3029/Flask-Server-template
+[submodule "javascript/art-of-node"]
+	path = javascript/art-of-node
+	url = https://github.com/max-mapper/art-of-node
+[submodule "python/flask-examples/flasky"]
+	path = python/flask-examples/flasky
+	url = https://github.com/miguelgrinberg/flasky
+[submodule "python/flask-examples/Flask-SocketIO"]
+	path = python/flask-examples/Flask-SocketIO
+	url = https://github.com/miguelgrinberg/Flask-SocketIO
+[submodule "python/flask-examples/awesome-flask"]
+	path = python/flask-examples/awesome-flask
+	url = https://github.com/mjhea0/awesome-flask
+[submodule "security/pentestmonkey-cheatsheets"]
+	path = security/pentestmonkey-cheatsheets
+	url = https://github.com/acole76/pentestmonkey-cheatsheets
