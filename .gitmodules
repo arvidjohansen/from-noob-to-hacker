@@ -61,3 +61,6 @@
 [submodule "security/ssh-cheatsheet"]
 	path = security/ssh-cheatsheet
 	url = https://github.com/alvitawa/ssh-cheatsheet
+[submodule "security/mimikatz"]
+	path = security/mimikatz
+	url = https://github.com/gentilkiwi/mimikatz
