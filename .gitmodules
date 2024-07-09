@@ -55,3 +55,9 @@
 [submodule "security/pentestmonkey-cheatsheets"]
 	path = security/pentestmonkey-cheatsheets
 	url = https://github.com/acole76/pentestmonkey-cheatsheets
+[submodule "security/cheatsheet-ssh-A4"]
+	path = security/cheatsheet-ssh-A4
+	url = https://github.com/DennyZhang/cheatsheet-ssh-A4
+[submodule "security/ssh-cheatsheet"]
+	path = security/ssh-cheatsheet
+	url = https://github.com/alvitawa/ssh-cheatsheet
