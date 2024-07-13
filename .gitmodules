@@ -64,3 +64,18 @@
 [submodule "security/mimikatz"]
 	path = security/mimikatz
 	url = https://github.com/gentilkiwi/mimikatz
+[submodule "security/1f784339df82c57a43bf"]
+	path = security/1f784339df82c57a43bf
+	url = https://gist.github.com/e7d/1f784339df82c57a43bf
+[submodule "hosting/cheap-vps"]
+	path = hosting/cheap-vps
+	url = https://github.com/BEST-FREE-VPS/cheap-vps
+[submodule "hosting/Cloud-Free-Tier-Comparison"]
+	path = hosting/Cloud-Free-Tier-Comparison
+	url = https://github.com/cloudcommunity/Cloud-Free-Tier-Comparison
+[submodule "hosting/d4ec55ccbf935173a5890cfcdfd7880e"]
+	path = hosting/d4ec55ccbf935173a5890cfcdfd7880e
+	url = https://gist.github.com/mikeroru/d4ec55ccbf935173a5890cfcdfd7880e
+[submodule "linux/How-To-Secure-A-Linux-Server"]
+	path = linux/How-To-Secure-A-Linux-Server
+	url = git@github.com:imthenachoman/How-To-Secure-A-Linux-Server.git
