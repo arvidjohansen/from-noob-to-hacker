@@ -79,3 +79,6 @@
 [submodule "linux/How-To-Secure-A-Linux-Server"]
 	path = linux/How-To-Secure-A-Linux-Server
 	url = git@github.com:imthenachoman/How-To-Secure-A-Linux-Server.git
+[submodule "linux/linux-cheat-sheet"]
+	path = linux/linux-cheat-sheet
+	url = git@github.com:arvidjohansen/linux-cheat-sheet.git
