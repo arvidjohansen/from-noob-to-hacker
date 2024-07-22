@@ -91,3 +91,9 @@
 [submodule "security/the-book-of-secret-knowledge"]
 	path = security/the-book-of-secret-knowledge
 	url = https://github.com/trimstray/the-book-of-secret-knowledge
+[submodule "ai/awesome-text-to-video"]
+	path = ai/awesome-text-to-video
+	url = https://github.com/jianzhnie/awesome-text-to-video
+[submodule "ai/PromptClip"]
+	path = ai/PromptClip
+	url = https://github.com/video-db/PromptClip
