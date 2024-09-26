@@ -97,3 +97,6 @@
 [submodule "ai/PromptClip"]
 	path = ai/PromptClip
 	url = https://github.com/video-db/PromptClip
+[submodule "Cyberonix"]
+	path = Cyberonix
+	url = https://github.com/TeamDefronix/Cyberonix
