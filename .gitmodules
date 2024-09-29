@@ -100,3 +100,6 @@
 [submodule "Cyberonix"]
 	path = Cyberonix
 	url = https://github.com/TeamDefronix/Cyberonix
+[submodule "ai/awesome-transformer"]
+	path = ai/awesome-transformer
+	url = https://github.com/ictnlp/awesome-transformer
