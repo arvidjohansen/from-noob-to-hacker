@@ -103,3 +103,15 @@
 [submodule "ai/awesome-transformer"]
 	path = ai/awesome-transformer
 	url = https://github.com/ictnlp/awesome-transformer
+[submodule "linux/awesome-linuxaudio"]
+	path = linux/awesome-linuxaudio
+	url = https://github.com/nodiscc/awesome-linuxaudio
+[submodule "linux/awesome-selfhosted"]
+	path = linux/awesome-selfhosted
+	url = https://github.com/Kickball/awesome-selfhosted
+[submodule "linux/awesome-shell"]
+	path = linux/awesome-shell
+	url = https://github.com/alebcay/awesome-shell
+[submodule "linux/awesome-sysadmin"]
+	path = linux/awesome-sysadmin
+	url = https://github.com/n1trux/awesome-sysadmin
