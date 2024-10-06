@@ -6,6 +6,9 @@ Check out my
 
 ## Specialized software lists
 
+from: https://wiki.archlinux.org/title/List_of_applications
+
+
 -   [awesome-linuxaudio](https://github.com/nodiscc/awesome-linuxaudio) --- Software for audio/video/live production
 -   [awesome-selfhosted](https://github.com/Kickball/awesome-selfhosted) --- Network services and web applications
 -   [awesome-shell](https://github.com/alebcay/awesome-shell) --- Command-line frameworks, toolkits and guides
