@@ -1,0 +1,98 @@
+body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      background-color: #f0f0f0;
+      margin: 0;
+      height: 100vh;
+      /*
+      overflow: hidden;
+      */
+      
+      
+    }
+
+    .grid-container {
+      display: grid;
+     /*
+     gap: 4px;
+     */
+      margin-top: 20px;
+      max-height: 100%;
+      overflow-y: auto;
+      overflow-x:visible;
+      padding-inline: 10px;
+      max-width:100vw !important;
+      /*
+      width:100%;
+      */
+      justify-content: stretch;
+    }
+
+    .number {
+      width: auto;
+      height: auto;
+      /*
+      min-width: 40px;
+      min-height: 40px;
+      */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 5px;
+      color: white;
+      font-size: 14px;
+      transition: background-color 0.3s, transform 0.3s;
+      margin: 2px;
+      padding:2px;
+    }
+
+    .prime {
+      background-color: green;
+    }
+
+    .special-prime {
+      background-color: blue;
+    }
+
+    .non-prime {
+      background-color: gray;
+    }
+
+    .new-digit {
+        background-color: rgb(130,0,0);
+        /*
+        box-shadow: 0 0 0 15px  rgb(130,0,0); 
+      border-color: rgb(130, 0, 0);
+      border-inline-start-color: rgb(130,0,0);
+      border-inline-end-color: rgb(255, 0, 0);
+      border-style: double;
+      border: brown;
+        */
+    }
+
+    .prime.new-digit{
+        background-color: yellow !important
+    }
+    .special-prime.new-digit{
+        background-color: rgb(255, 162, 0) !important
+    }
+
+    .slider-container {
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    .slider {
+      width: 300px;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    .number:hover {
+      transform: scale(1.2);
+    }

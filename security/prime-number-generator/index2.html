@@ -2,72 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=0.9">
   <title>Prime Number Visualizer</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      background-color: #f0f0f0;
-      margin: 0;
-      height: 100vh;
-      overflow: hidden;
-    }
-
-    .grid-container {
-      display: grid;
-      gap: 4px;
-      margin-top: 20px;
-      max-height: 100%;
-      overflow-y: auto;
-    }
-
-    .number {
-      width: 40px;
-      height: 40px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border-radius: 5px;
-      color: white;
-      font-size: 14px;
-      transition: background-color 0.3s, transform 0.3s;
-      margin: 2px;
-      padding:2px;
-    }
-
-    .prime {
-      background-color: green;
-    }
-
-    .special-prime {
-      background-color: blue;
-    }
-
-    .non-prime {
-      background-color: gray;
-    }
-
-    .slider-container {
-      margin-top: 10px;
-      text-align: center;
-    }
-
-    .slider {
-      width: 300px;
-    }
-
-    h1 {
-      color: #333;
-    }
-
-    .number:hover {
-      transform: scale(1.2);
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" ref>
+</link>
 </head>
 <body>
 
@@ -76,13 +14,13 @@
   <!-- Slider for grid size -->
   <div class="slider-container">
     <label for="gridSlider">Grid Size: </label>
-    <input type="range" id="gridSlider" class="slider" min="2" max="100" value="10" oninput="updateGrid()">
+    <input type="range" id="gridSlider" class="slider" min="2" max="256" value="10" oninput="updateGrid()">
   </div>
 
   <!-- Slider for total numbers to display -->
   <div class="slider-container">
     <label for="numSlider">Numbers to Display: </label>
-    <input type="range" id="numSlider" class="slider" min="1" max="10000" value="1000" oninput="updateGrid()">
+    <input type="range" id="numSlider" class="slider" min="1" max="100000" value="1000" oninput="updateGrid()">
   </div>
 
   <!-- Slider for base number system -->
@@ -91,66 +29,16 @@
     <input type="range" id="baseSlider" class="slider" min="2" max="24" value="10" oninput="updateGrid()">
   </div>
 
+   <!-- Checkbox for activating color of squares -->
+   <div class="slider-container">
+    <label for="baseNumberIncrementCheckbox">Number Base (2-24): </label>
+    <input type="checkbox" id="baseNumberIncrementCheckbox" class="checkbox" checked="false" value="false" oninput="updateGrid()">
+  </div>
+
   <div id="grid" class="grid-container"></div>
 
-  <script>
-    const gridContainer = document.getElementById('grid');
-    const gridSlider = document.getElementById('gridSlider');
-    const numSlider = document.getElementById('numSlider');
-    const baseSlider = document.getElementById('baseSlider');
-
-    // Function to determine if a number is prime
-    function isPrime(num) {
-      if (num < 2) return false;
-      for (let i = 2; i <= Math.sqrt(num); i++) {
-        if (num % i === 0) return false;
-      }
-      return true;
-    }
-
-    // Special primes: Twin primes (pairs of primes differing by 2)
-    function isSpecialPrime(num) {
-      return isPrime(num) && (isPrime(num - 2) || isPrime(num + 2));
-    }
-
-    // Convert number to selected base system
-    function convertToBase(num, base) {
-      return num.toString(base).toUpperCase();
-    }
-
-    // Generate the grid with numbers from 1 to numMax and in the selected base
-    function generateGrid(size, numMax, base) {
-      gridContainer.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
-      gridContainer.innerHTML = '';
-
-      for (let i = 1; i <= numMax; i++) {
-        const numberDiv = document.createElement('div');
-        const convertedNumber = convertToBase(i, base);
-        numberDiv.textContent = convertedNumber;
-        numberDiv.classList.add('number');
-
-        if (isSpecialPrime(i)) {
-          numberDiv.classList.add('special-prime');
-        } else if (isPrime(i)) {
-          numberDiv.classList.add('prime');
-        } else {
-          numberDiv.classList.add('non-prime');
-        }
-
-        gridContainer.appendChild(numberDiv);
-      }
-    }
-
-    // Update grid when the sliders are adjusted
-    function updateGrid() {
-      const gridSize = gridSlider.value;
-      const numMax = numSlider.value;
-      const base = baseSlider.value;
-      generateGrid(gridSize, numMax, base);
-    }
-
-    // Initial grid generation
-    updateGrid();
+  <script src="script.js">
+    
   </script>
 
 </body>
