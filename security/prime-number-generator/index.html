@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prime Number Visualizer</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      background-color: #f0f0f0;
+      margin: 0;
+      height: 100%;
+    }
+
+    .grid-container {
+      display: grid;
+      gap: 4px;
+      margin-top: 20px;
+    }
+
+    .number {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 5px;
+      color: white;
+      font-size: 16px;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+
+    .prime {
+      background-color: green;
+    }
+
+    .special-prime {
+      background-color: blue;
+    }
+
+    .non-prime {
+      background-color: gray;
+    }
+
+    .slider-container {
+      margin-top: 20px;
+      margin-bottom:20px;
+      text-align: center;
+      float: left;
+      size: 300%;
+    }
+
+    .slider {
+      width: 300px;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    .number:hover {
+      transform: scale(1.2);
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Prime Number Visualizer (1-1000)</h1>
+
+  <div class="slider-container">
+    <label for="slider">Grid Size: </label>
+    <input type="range" id="slider" class="slider" min="5" max="30" value="100" oninput="updateGrid()">
+  </div>
+
+  <div id="grid" class="grid-container"></div>
+
+  <script>
+    const gridContainer = document.getElementById('grid');
+    const slider = document.getElementById('slider');
+
+    // Function to determine if a number is prime
+    function isPrime(num) {
+      if (num < 2) return false;
+      for (let i = 2; i <= Math.sqrt(num); i++) {
+        if (num % i === 0) return false;
+      }
+      return true;
+    }
+
+    // Special primes: Let’s consider twin primes (pairs of primes differing by 2) as "special primes"
+    function isSpecialPrime(num) {
+      return isPrime(num) && (isPrime(num - 2) || isPrime(num + 2));
+    }
+
+    // Generate the grid for numbers 1-1000
+    function generateGrid(size) {
+      gridContainer.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
+      gridContainer.innerHTML = '';
+
+      for (let i = 1; i <= 1000; i++) {
+        const numberDiv = document.createElement('div');
+        numberDiv.textContent = i;
+        numberDiv.classList.add('number');
+
+        if (isSpecialPrime(i)) {
+          numberDiv.classList.add('special-prime');
+        } else if (isPrime(i)) {
+          numberDiv.classList.add('prime');
+        } else {
+          numberDiv.classList.add('non-prime');
+        }
+
+        gridContainer.appendChild(numberDiv);
+      }
+    }
+
+    // Update grid when the slider is adjusted
+    function updateGrid() {
+      const gridSize = slider.value;
+      generateGrid(gridSize);
+    }
+
+    // Initial grid generation
+    generateGrid(slider.value);
+  </script>
+
+</body>
+</html>
