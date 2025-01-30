@@ -118,3 +118,6 @@
 [submodule "security/DefenseAgainstTheDarkArts"]
 	path = security/DefenseAgainstTheDarkArts
 	url = https://github.com/tuftsdev/DefenseAgainstTheDarkArts
+[submodule "All-DSA-Sheets"]
+	path = All-DSA-Sheets
+	url = https://github.com/dpvasani/All-DSA-Sheets
