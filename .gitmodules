@@ -121,3 +121,6 @@
 [submodule "All-DSA-Sheets"]
 	path = All-DSA-Sheets
 	url = https://github.com/dpvasani/All-DSA-Sheets
+[submodule "Bash-Cheat-Sheet"]
+	path = Bash-Cheat-Sheet
+	url = https://github.com/RehanSaeed/Bash-Cheat-Sheet
