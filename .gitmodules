@@ -127,3 +127,6 @@
 [submodule "flare-vm"]
 	path = flare-vm
 	url = https://github.com/mandiant/flare-vm.git
+[submodule "Argus"]
+	path = Argus
+	url = https://github.com/jasonxtn/Argus.git
