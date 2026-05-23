@@ -124,3 +124,6 @@
 [submodule "Bash-Cheat-Sheet"]
 	path = Bash-Cheat-Sheet
 	url = https://github.com/RehanSaeed/Bash-Cheat-Sheet
+[submodule "flare-vm"]
+	path = flare-vm
+	url = https://github.com/mandiant/flare-vm.git
